@@ -4,6 +4,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
+    margin: 0;
 }
 
 /**
@@ -16,4 +17,308 @@ body {
  * - When using Flexbox, remember the items you want to move around need to be inside a parent container set to 'display: flex'
  */
 
+ .header, .articles,
+ footer {
+   max-width: 1200px;
+   margin: 0 auto;
+   font-family: Arial, Helvetica, sans-serif;
+ }
 
+/* Header section  */
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding:1em;
+}
+
+.headerLogo{
+    height:50px;
+    width: auto;
+}
+/* Navbar  */
+
+/* Hamburger menu will not show on a bigger screen size, will only show on smaller device */
+.hamburgerMenu{
+    display: none;
+    width: 30px;
+    height: 30px;
+}
+
+/* Main navbar  that will be visible on bigger device like desktop*/
+.navigation-list{
+    display: flex;
+    list-style: none;
+}
+.navigation-item{
+    padding:0 5px;
+    margin: 0 10px;
+}
+.navigation-link,a{
+    text-decoration: none;
+    color:gray;
+    font-weight: 600;
+    font-size: large;
+}
+.active{
+    color:black;
+}
+.navigation-link:hover{
+    color:rgb(241, 111, 3);
+}
+/* Main content  */
+.content{
+    font-family: Arial, Helvetica, sans-serif;
+}
+    
+ .main{
+    background-image: url(../img/first-background.jpg);
+    background-position:100%;  /* This is important too for the small and big devices adjustment*/
+    background-size: cover; /* Image background-size set to cover for all diveces adjustment */
+    height:85vh; 
+    display: flex; 
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    font-weight: 100;
+ }
+
+/* Main content's texts  */
+ .main>h1{
+     font-size: 3.5em;
+     letter-spacing:3px;
+ }
+ .h1Paragraph{
+     font-size: 2.2em;
+     letter-spacing:1px;
+     margin-top: -10px;
+     font-weight: lighter;
+ }
+
+/* Button's */
+button{
+    background-color: rgb(241, 111, 3);
+    color:white;
+    border: none;
+    padding:15px 5px;
+    border-radius: 4px;
+    width: 10rem;
+    margin-top: 2%;
+}
+button:hover{
+    background-color: darkorange;
+}
+
+/* Features with svg logo's  */
+.features-h2{
+    text-align: center; 
+    padding-top:2%; 
+    font-size:2.5em;
+    font-weight:lighter;
+}
+
+.features{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    font-size:larger;
+    margin-bottom: 3%;
+}
+article{
+    display: flex;
+    flex-direction: column;
+    align-items:  center;
+    margin: 0 40px;
+    padding: 1.5em;
+    
+}
+article:hover{
+    background-color: rgb(253, 231, 206);
+    
+    border-radius: 5%;
+}
+.features-img{
+    width: 100px;
+    height: 150px;
+}
+
+/* hr line used to create a gray line just after the article's section's end */
+hr{
+    width: 75%;
+}
+
+/* Extended article of the main content */
+.extended-article{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: 4%;
+}
+.extended-article>.extended-article-textsAndButton{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(253, 222, 222, 0.877);
+    width: 55%; /* ask Edu buddy, How can i set this elements display to show 100% width?*/
+}
+.h2-of-extended-article{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    font-size: 1.1em;
+}
+
+.h2-of-extended-article>h2{
+    margin: 5px;
+    font-weight:300;
+}
+/* extended-article span  */
+.extended-article span{
+    color:rgb(241, 111, 3);
+    font-weight: 800;
+    padding:3px;
+}
+/* Footer  */
+footer{
+    display: flex;
+    flex-flow: column wrap;
+    align-items:  center;
+}
+
+.social-media-icons{
+    display: flex;
+    flex-direction: row;
+    
+}
+.social-media-icons .social-media-logo{
+    height: 21px;
+    width: 21px;
+    border: 1px solid lightgray;
+    border-radius: 50%;
+    padding:5px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.social-media-icons .social-media-logo:hover{
+    background-color: rgb(221, 219, 219);
+}
+
+/* @media codes to fit the page in a device screen max width of 932 */
+@media (max-width:932px){
+
+    .header{
+        margin-bottom:-20%;
+        padding:1em;
+    }
+    .main>h1{
+        font-size: xx-large;
+    }
+    .h1Paragraph{
+        font-size:large;
+    }
+    .header>div{
+        display: none;
+    }
+    .hamburgerMenu{
+        display: flex; 
+    }
+    main,.features,.extended-article{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; 
+    }
+    .features-h2{
+        font-size: 1.6em;
+        margin-top: -2em;
+    }
+    .features-img{
+        width: 70px;
+        height: 105px;
+    }
+
+/* I need to fix the following main section to show the full width and height of the this class's
+    background-image also the text's should be on the center of x and y, How can I do that?? 
+    My solution- I used background-size:contain and background-repeat:no-repeat, then adjusted top 
+    and bottom margin to fit the whole picture in a smaller device;*/
+    
+    .main{ 
+        padding: 10px 20px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin: 15% 0 5% 0;
+    }
+    
+    .extended-article>.extended-article-textsAndButton{
+        width: 100%;
+        padding: 5px;
+    }
+    footer>p{
+        font-size: x-small;
+    };
+}
+/* End of @media codes to fit the page in a device screen max width of 932 */
+
+/* @media codes to fit the page in a device screen max width of 530*/
+@media (max-width:530px){
+
+    .header{
+        margin-bottom: -20%;
+        padding:1em;
+    }
+    
+    .main>h1{
+        font-size: x-large;
+    }
+    .h1Paragraph{
+        font-size:large;
+    }
+    .header>div{
+        display: none;
+    }
+    .hamburgerMenu{
+        display: flex; 
+    }
+    main,.features,.extended-article{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .features-h2{
+        font-size: 1.5em;
+        margin-top: -3em;
+    }
+
+    .features-img{
+        width: 70px;
+        height: 105px;
+    }
+
+    .main{ 
+        padding: 10px 20px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin: -10% 0 5% 0;
+    }
+
+    img{
+        width: 100%;
+        height: auto;
+    }
+    
+    .extended-article>.extended-article-textsAndButton{
+        width: 100%;
+        padding: 5px;
+    }
+    footer>p{
+        font-size: 0.55em;
+    };
+    
+}
+ /* End of @media codes to fit the page in a device screen max width of 530*/
